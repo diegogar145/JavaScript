@@ -19,6 +19,10 @@
 
         <p>¿Top se gankea?</p>
         <input type="text" id="preguntaCinco">
+
+        <p>¿Por que juegas video juegos?</p>
+        <input type="text" id="preguntaSeis">
+
         <br><br><br>
         <button onclick="finalizado()">Enviar</button>
         <br><br>
@@ -63,13 +67,15 @@
                 let respuesta3 = document.getElementById("preguntaTres").value;
                 let respuesta4 = document.getElementById("preguntaCuatro").value;
                 let respuesta5 = document.getElementById("preguntaCinco").value;
+                let respuesta6 = document.getElementById("preguntaSeis").value;
 
                 let mensaje = fecha.toLocaleDateString("es-ES") + "\n" +
                                 "1 " + respuesta1 + "\n" +
                                 "2 " + respuesta2 + "\n" +
                                 "3 " + respuesta3 + "\n" +
                                 "4 " + respuesta4 + "\n" +
-                                "5 " + respuesta5;
+                                "5 " + respuesta5 + "\n" +
+                                "6 " + respuesta6;
                 alert(mensaje);
             }
 

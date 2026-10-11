@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+    <head>
+        <title>Preguntas Sobre Video Juegos</title>
+    </head>
+    <body onload="comenzarCuentaRegresiva()">
+        <h1>Cuenta Regresiva</h1>
+        <h2>Responde a las preguntas antes de que se acabe el tiempo: <span id="cuentaRegresiva"></span></h2>
+        <p>¿Cuantos juegos de dark souls existen?</p>
+        <input type="text" id="preguntaUno">
+
+        <p>¿Cuantos roles existen en League of legends?</p>
+        <input type="text" id="preguntaDos">
+
+        <p>¿Nombre los roles de League of legends?</p>
+        <input type="text" id="preguntaTres">
+
+        <p>Fifa o PES ¿cual es mejor?</p>
+        <input type="text" id="preguntaCuatro">
+
+        <p>¿Top se gankea?</p>
+        <input type="text" id="preguntaCinco">
+        <br><br><br>
+        <button onclick="finalizado()">Enviar</button>
+        <br><br>
+        <button onclick="volverAIntentar()">Reinicar Prueba</button>
+
+        <AUdio id="audioFinal">
+            <source src="gameover.mp3" type="audio/mpeg"
+            Sonido no Habiltado
+        </AUdio>
+
+        <script>
+            let tiempoTerminado;
+            let intervaloDeTiempo;
+
+            function comenzarCuentaRegresiva(){
+                tiempoTerminado = setTimeout(tiempoCumplido, 30000);
+                intervaloDeTiempo = setInterval(tictac, 1000);
+
+                document.getElementById("cuentaRegresiva").textContent = 30;
+            }
+
+            function tictac(){
+                let tiempo = document.getElementById("cuentaRegresiva").textContent;
+
+                document.getElementById("cuentaRegresiva").textContent = tiempo -1;
+            }
+
+            function tiempoCumplido(){
+                clearInterval(intervaloDeTiempo);
+                document.getElementById("cuentaRegresiva").textContent = 0
+                document.getElementById("audioFinal").play();
+                alert("Game Overrrrr");
+            }
+
+            function finalizado(){
+                clearTimeout(tiempoTerminado);
+                clearInterval(intervaloDeTiempo);
+                
+                let fecha = new Date();
+                let respuesta1 = document.getElementById("preguntaUno").value;
+                let respuesta2 = document.getElementById("preguntaDos").value;
+                let respuesta3 = document.getElementById("preguntaTres").value;
+                let respuesta4 = document.getElementById("preguntaCuatro").value;
+                let respuesta5 = document.getElementById("preguntaCinco").value;
+
+                let mensaje = fecha.toLocaleDateString("es-ES") + "\n" +
+                                "1 " + respuesta1 + "\n" +
+                                "2 " + respuesta2 + "\n" +
+                                "3 " + respuesta3 + "\n" +
+                                "4 " + respuesta4 + "\n" +
+                                "5 " + respuesta5;
+                alert(mensaje);
+            }
+
+            function volverAIntentar(){
+                location.reload();
+            }
+        </script>
+    </body>
+</html>
